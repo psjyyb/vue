@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<style>
+.movieBoard{border:1px solid tomato}
+
+</style>
+
+</head>
+<body>
+    <div id="app">
+        <div v-show="isLoading"><img v-bind:src="profile"style="width:200px"></div>
+        <input v-model="date"><button @click="resource">검색</button>
+        <div v-for="movie in movies" class="movieBoard">
+        <span>{{movie.movieNm}}</span> <span @click="movieInfo(movie.movieCd)">{{movie.movieCd}}</span>         
+        </div>
+        <div><span v-for="actor in actors">배우:{{actor.peopleNm}}</span><hr /></div>
+        <div><span v-for="director in directors">감독:{{director.peopleNm}}</span></div>
+    </div>
+    <script>
+        const url= 'https://kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=f5eef3421c602c6cb7ea224104795888&targetDt=';
+        const infoUrl='https://www.kobis.or.kr/kobisopenapi/webservice/rest/movie/searchMovieInfo.json?key=f5eef3421c602c6cb7ea224104795888&movieCd=';
+        Vue.createApp({
+             data(){ return {movies : [{movieNm:'듄',movieCd:200}],
+                            actors: [{peopleNm:'홍길동'},{peopleNm:'김기자'}],
+                            directors: [{peopleNm:'나감동'},{peopleNm:'이감독'}],
+                            isLoading:false,
+                            date:'20240603',
+                            profile:'loading.jpg'
+                            }
+                },
+            created(){
+            this.isLoading=true;
+            fetch(url)
+            .then(resolve => resolve.json())
+            .then(result=> {this.movies = result.boxOfficeResult.dailyBoxOfficeList,
+            this.isLoading=false;}
+               
+            )
+            },
+            methods:{
+                movieInfo(movieCd){
+                    fetch(infoUrl+movieCd)
+                    .then(resolve=>resolve.json())
+                    .then(result=>{
+                        this.actors=result.movieInfoResult.movieInfo.actors,
+                        this.directors=result.movieInfoResult.movieInfo.directors
+                    })
+                },
+                getMovies(dt){
+                    this.isLoading=true;
+                    fetch(url+dt)
+                    .then(resolve=>resolve.json())
+                    .then(result=> {this.movies = result.boxOfficeResult.dailyBoxOfficeList,
+                    this.isLoading=false;})
+                },
+                resource(){
+                    this.getMovies(this.date);
+                    //this.date='';
+                }
+            },
+            created(){
+                this.getMovies('20240603');
+            },
+         
+    
+    }).mount('#app');
+       
+    </script>
+</body>
+</html>
