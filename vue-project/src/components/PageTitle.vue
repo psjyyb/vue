@@ -6,6 +6,7 @@
     </div>
 </template>
 <script>
+
     export default{
         props:{title:{String,default:'페이지 제모'}
     },

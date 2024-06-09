@@ -4,6 +4,7 @@
     </div>
   </template>
 <script>
+console.log('여기들어옴');
 export default {
   name: 'UserView',
   components: {
