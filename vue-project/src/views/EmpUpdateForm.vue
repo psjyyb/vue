@@ -40,12 +40,12 @@ import axios from 'axios';
         this.employee.salary=this.$route.query.salary
         axios.get('http://localhost:81/myserver/empDeptJob')
         .then(res=>this.jobs=res.data.jobs)
-        //axios.get('http://localhost:81/myserver/empId',this.employee.employee_id)
+        //axios.get('http://localhost:81/myserver/employees/',this.employee.employee_id)
         //.then(res=>{this.employee=res.data})
     },
     methods:{
         modBtn: async function(){
-            await axios.post('http://localhost:81/myserver/empUpdate',this.employee)
+            await axios.put(`http://localhost:81/myserver/empUpdate/${this.employee_id}`,this.employee)
             .then(this.$router.push("/emp"))//목록으로 이동
         }
     }
