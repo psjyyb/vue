@@ -31,7 +31,7 @@ router.post("/",(req,res)=>{
     res.send("board insert 라우트");
 })
 router.put("/:no",(req,res)=>{
-   board = board.map(a=> a.no ==req.params.no?{...a,...req.body}:obj )
+   board = board.map(a=> a.no ==req.params.no?{...a,...req.body}:a )
     res.send(board);
 })
 router.delete("/:no",(req,res)=>{
