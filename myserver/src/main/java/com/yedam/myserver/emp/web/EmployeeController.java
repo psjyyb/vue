@@ -18,7 +18,7 @@ import com.yedam.myserver.emp.mapper.EmployeeMapper;
 import com.yedam.myserver.emp.vo.Employee;
 
 @RestController
-//@CrossOrigin(origins = "*", allowedHeaders = "*",  maxAge = 3600)
+@CrossOrigin(origins = "*", allowedHeaders = "*",  maxAge = 3600)
 public class EmployeeController {
 	private static final Logger logger = LoggerFactory.getLogger(EmployeeController.class);
 	
@@ -36,6 +36,7 @@ public class EmployeeController {
 	public Employee findById(Employee emp) {
 		return employeeDao.findById(emp);
 	}
+	
 	
 	//부서와 직업 검색
 	@GetMapping(value="/empDeptJob")
