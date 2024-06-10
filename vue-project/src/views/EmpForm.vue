@@ -29,14 +29,14 @@
     }      
     },
     created(){
-        axios.get('/empDeptJob')
+        axios.get('http://localhost:81/myserver/empDeptJob')
         .then(res=>this.jobs=res.data.jobs)
         
         
     },
     methods:{
       addBtn: async function(){
-          await axios.post('/empInsert',this.employee)
+          await axios.post('http://localhost:81/myserver/empInsert',this.employee)
             .then(this.$router.push("/emp"))//목록으로 이동
         }
     }

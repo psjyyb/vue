@@ -1,0 +1,37 @@
+{
+  "posts": [
+    {
+      "id": "1",
+      "title": "test1"
+    },
+    {
+      "id": "2",
+      "title": "test2"
+    },
+    {
+      "id": "3",
+      "title": "test3"
+    },
+    {
+      "id": "4",
+      "title": "test4"
+    },
+    {
+      "id": "5",
+      "title": "test5"
+    }
+  ],
+  "comments": [
+    {
+      "id": "1",
+      "body": "comments1"
+    },
+    {
+      "id": "2",
+      "body": "asdasdsadsdasd"
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
