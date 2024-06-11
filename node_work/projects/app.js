@@ -2,7 +2,7 @@ const express = require('express');
 const boardRouter = require('./routes/board.js')
 const customerRouter = require('./routes/customer.js');
 const fileRouter = require('./routes/file.js')
-//const todoRouter = require('./routes/todo.js')
+const todoRouter = require('./routes/todo.js')
 const cors = require('cors');
 const morgan = require('morgan');
 const app = express()
@@ -19,7 +19,7 @@ const requestTime = function(req,res,next){
     next()
 }
 app.use(requestTime);
-//app.use("/todo",todoRouter);
+app.use("/todo",todoRouter);
 app.use("/board",boardRouter);
 app.use("/customer",customerRouter);
 app.use("/file",fileRouter);

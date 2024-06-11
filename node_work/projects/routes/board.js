@@ -9,7 +9,6 @@ router.get("/",(req,res)=>{
     let page = (p-1)*3;
     query("boardList",page)
     .then(result=>res.send(result))
-    .catch(err=>console.log(err))
 })  
 router.get("/:no",(req,res)=>{
   let result =query("boardInfo",req.params.no)
