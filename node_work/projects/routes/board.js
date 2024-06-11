@@ -1,43 +1,37 @@
 const express = require('express');
 const router = express.Router();
+const query = require('../mysql/index.js');
+const multer =require('multer');
+const upload = (multer({dest:'d:/upload/'}))
 
-board = [{
-    "no":1,
-    "title": "titit",
-    "writer": "wriwri",
-    "content": "concon"
-  },
-  {
-    "no":2,
-    "title": "pqpqp",
-    "writer": "vpvp",
-    "content": "sososo"
-  }
-];
-
-  router.get("/:no",(req,res)=>{
-    //console.log('no:',req.params.no)
-    let result = board.filter(a=>
-        a.no==req.params.no
-    )
-    res.send(result);
-})
 router.get("/",(req,res)=>{
-    console.log(new Date(req.requestTime).toLocaleString());
-    res.send(board);
+    let p =Number(req.query.page);
+    let page = (p-1)*3;
+    query("boardList",page)
+    .then(result=>res.send(result))
+    .catch(err=>console.log(err))
+})  
+router.get("/:no",(req,res)=>{
+  let result =query("boardInfo",req.params.no)
+  .then(result=>res.send(result))
 })
-router.post("/",(req,res)=>{
-    board.push(req.body)
-    res.send("board insert 라우트");
-})
+router.post("/",upload.single('avatar'),(req,res)=>{
+  let data = {...req.body};
+  if(req.file!=null){
+    data.filename = req.file.originalname;
+    data.uploadfilename = req.file.filename;
+  }
+    query("boardInsert",data)
+    .then(result => res.send(result))
+  });
+
 router.put("/:no",(req,res)=>{
-   board = board.map(a=> a.no ==req.params.no?{...a,...req.body}:a )
-    res.send(board);
+  query("boardUpdate",[req.body,req.params.no])
+  .then(result=> res.send(result))
 })
 router.delete("/:no",(req,res)=>{
-    //indexOf -> splite
-    //board = board.filter
-    board = board.filter(a => a.no!= req.params.no)
-    res.send(board);
+  query("boardDelete",req.params.no)
+  .then(result=>res.send(result))
 })
+
 module.exports = router;

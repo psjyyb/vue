@@ -16,3 +16,5 @@ console.log('1. 첫번째 메시지');
 console.log('hostname',os.hostname);
 console.log('type', os.type);
 console.log('homedir',os.homedir);
+
+console.log('username:',process.env.USERNAME);
