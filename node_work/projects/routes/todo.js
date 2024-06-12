@@ -17,7 +17,6 @@ router.post("/",(req,res)=>{
     query("todoInsert",req.body)
     .then(result=>res.send(result))
 })
-
 router.put("/:no",(req,res)=>{
   query("todoUpdate",[req.body,req.params.no])
   .then(result=> res.send(result))
@@ -26,5 +25,4 @@ router.delete("/:no",(req,res)=>{
   query("todoDelete",req.params.no)
   .then(result=>res.send(result))
 })
-
 module.exports = router;
