@@ -19,9 +19,11 @@
                     <td>{{ customer.email }}</td>
                     <td>{{ customer.phone }}</td>
                     <td>{{ customer.address }}</td>
+                    
                 </tr>
             </tbody>
         </table>
+        <input type="number" v-model:="page">
     </div>
 </template>
 <script>
@@ -29,11 +31,13 @@
     export default{
     data(){
      return {
-        customers:[]
+        customers:{},page:1
      }; 
     },
     created(){
-        axios.get('/api/customer')
+        axios.get('/api/customer', {
+        params: { page: this.page }
+      })
         .then(result=>this.customers=result.data)
     },
     methods:{
@@ -41,9 +45,12 @@
             this.$router.push('/customerInsert')
         },
         infoForm(customer){
-            //axios.get('/api/customer',customer.id)
-            this.$router.push('/customerInfo')
-        }
+            this.$router.push({
+                name:'customerInfo',
+                query:{id:customer.id}
+            })
+        },
+        
     }
     }
 </script>

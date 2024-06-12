@@ -3,7 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-//const cors = require('cors');
+const cors = require('cors');
 
 
 
@@ -22,11 +22,13 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-//app.use(cors());
+app.use(cors());
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use("/api/customer",customerRouter)
+app.use("/customer",customerRouter);
+
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
