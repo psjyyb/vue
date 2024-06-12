@@ -1,24 +1,25 @@
 <template>
     <div>고객관리</div>
+    <div><button @click="addForm">고객등록</button></div>
     <div>
-        <table>
+        <table class="table table-success table-striped table table-hover">
             <thead>
                 <tr>
-                    <th>id:</th>
-                    <th>name:</th>
-                    <th>email:</th>
-                    <th>phone:</th>
-                    <th>address:</th>
+                    <th>id</th>
+                    <th>name</th>
+                    <th>email</th>
+                    <th>phone</th>
+                    <th>address</th>
                 </tr>
-            </thead>>
+            </thead>
             <tbody>
                 <tr v-for=" customer in customers">
                     <td>{{ customer.id }}</td>
-                    <td>{{ customer.name }}</td>
+                    <td @click="infoForm(customer)">{{ customer.name }}</td>
                     <td>{{ customer.email }}</td>
                     <td>{{ customer.phone }}</td>
                     <td>{{ customer.address }}</td>
-                </tr>1
+                </tr>
             </tbody>
         </table>
     </div>
@@ -32,11 +33,17 @@
      }; 
     },
     created(){
-        const url = 'http://localhost:8080/customer';
-        axios.get(url)
+        axios.get('/api/customer')
         .then(result=>this.customers=result.data)
     },
     methods:{
+        addForm(){
+            this.$router.push('/customerInsert')
+        },
+        infoForm(customer){
+            //axios.get('/api/customer',customer.id)
+            this.$router.push('/customerInfo')
+        }
     }
     }
 </script>

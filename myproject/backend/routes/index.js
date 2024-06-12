@@ -1,15 +1,17 @@
 var express = require('express');
 var router = express.Router();
+const path = require('path');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
   //res.render('index', { title: 'Express',username:'kipodong' });
   //res.redirect("/prod")
-  res.send("hello");
+  //res.send("hello");
   // const filepath = 'D:/upload/0750864fcbca03d48ca9e3958c689330';  
   // const filename = 'img.jpg'
   // res.setHeader('Content-Disposition', `attachment; filename=${filename}`); // 이게 핵심 
   // res.sendFile(filepath);
+  res.sendFile(path.join(__dirname, '../public', 'index.html'));
 });
 
 router.get('/prod',(req,res,next)=>{

@@ -1,5 +1,14 @@
 <template>
   <div class="about">
-    <h1>This is an about page</h1>
+    <PageTitle/>
+    
   </div>
 </template>
+<script>
+import HelloWorld from '@/components/HelloWorld.vue'
+import PageTitle from '../components/PageTitle.vue'
+export default{
+  components:{HelloWorld,PageTitle },
+  data(){return{}}
+}
+</script>
