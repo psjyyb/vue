@@ -3,7 +3,22 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express',username:'kipodong' });
+  //res.render('index', { title: 'Express',username:'kipodong' });
+  //res.redirect("/prod")
+  res.send("hello");
+  // const filepath = 'D:/upload/0750864fcbca03d48ca9e3958c689330';  
+  // const filename = 'img.jpg'
+  // res.setHeader('Content-Disposition', `attachment; filename=${filename}`); // 이게 핵심 
+  // res.sendFile(filepath);
 });
+
+router.get('/prod',(req,res,next)=>{
+   let data = [
+     {no:1,name:'키보드',price:2000},
+     {no:2,name:'마우스',price:6000},
+     {no:3,name:'모니터',price:4000}
+   ]
+   res.render('productList',{list:data});
+})
 
 module.exports = router;
