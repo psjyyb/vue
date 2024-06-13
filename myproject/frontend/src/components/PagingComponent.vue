@@ -29,7 +29,7 @@
     },
     methods:{
         goPage(page){
-            console.log(page)
+            console.log('pgcp',page)
             this.$emit('go-page',page)
         },
        

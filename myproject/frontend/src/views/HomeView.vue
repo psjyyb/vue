@@ -65,7 +65,7 @@ export default {
   },
   provide(){
     return{
-      itemlength:4
+      itemlength:555
     }
   },
   created(){
@@ -80,7 +80,7 @@ export default {
   methods:{
     goPage(page){
       // fetch
-      console.log('home',page)
+      console.log('home',page);
     },
     sendMessage(msg){
       console.log(msg);

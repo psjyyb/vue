@@ -1,6 +1,6 @@
 export default{
 methods:{
-    pageCalc(currentPage, total, pageSize = 10, pageUnit = 10) {
+    pageCalc(currentPage, total, pageSize = 10, pageUnit) {
         let firstPage = 1;
         let lastPage = Math.floor(total / pageUnit) + (total % pageUnit == 0 ? 0 : 1);
         let startIdx = Math.floor((currentPage - 1) / pageSize) * pageSize + 1;

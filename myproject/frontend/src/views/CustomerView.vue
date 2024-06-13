@@ -16,11 +16,10 @@
             <tbody>
                 <tr v-for=" customer in customers">
                     <td>{{ customer.id }}</td>
-                    <td @click="infoForm(customer)"  >{{ customer.name }}</td>
+                    <td @click="infoForm(customer)" >{{ customer.name }}</td>
                     <td>{{ customer.email }}</td>
                     <td>{{ customer.phone }}</td>
                     <td>{{ customer.address }}</td>
-                    
                 </tr>
             </tbody>
         </table>
@@ -66,8 +65,8 @@
         let pageUnit =this.pageUnit;
         let result = await axios.get(`/api/customer?pageUnit=${pageUnit}&page=${page}`);
         this.customers = result.data.list;
-        this.page =this.pageCalc(page,result.data.count,10,pageUnit);
-        console.log(this.page);
+        this.page =this.pageCalc(page,result.data.count,5,pageUnit);
+        console.log('vuew',page,'vuew1',result.data.count,'vuew2',5,'vuew3',pageUnit);
     },
     //  goPage(page){
     //     let pageUnit =this.pageUnit;
