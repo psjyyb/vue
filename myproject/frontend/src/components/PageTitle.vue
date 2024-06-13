@@ -1,5 +1,6 @@
 <template>
     <h1>{{title}} : {{ menuno}}</h1>
+    <!-- <h2>store count {{ this.$store.state.count }}</h2> -->
 </template>
 <script>
     export default{
