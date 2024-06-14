@@ -7,11 +7,14 @@ router.get('/', function(req, res, next) {
   //res.render('index', { title: 'Express',username:'kipodong' });
   //res.redirect("/prod")
   //res.send("hello");
-  // const filepath = 'D:/upload/0750864fcbca03d48ca9e3958c689330';  
+  //res.sendFile(path.join(__dirname, '../public', 'index.html'));
   // const filename = 'img.jpg'
-  // res.setHeader('Content-Disposition', `attachment; filename=${filename}`); // 이게 핵심 
-  // res.sendFile(filepath);
-  res.sendFile(path.join(__dirname, '../public', 'index.html'));
+
+  // 상세조회 이미지 추가
+  // const filepath = 'D:/upload/0750864fcbca03d48ca9e3958c689330';  
+  //res.setHeader('Content-Disposition', `attachment; filename=${filename}`); // 이게 핵심 
+  //res.sendFile(filepath);
+
 });
 
 router.get('/prod',(req,res,next)=>{

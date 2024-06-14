@@ -1,8 +1,32 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue';
 import CustomerInsert from '../views/CustomerInsertForm.vue';
+import LoginForm from '@/views/LoginForm.vue';
+import BoardView from '../views/BoardView.vue'
+import BoardInfo from '../views/BoardInfo.vue'
+import BoardInsert from '../views/BoardInsert.vue'
 
 const routes = [
+  {
+    path: '/boardInsert',
+    name: 'boardInsert',
+    component: BoardInsert
+  },
+  {
+    path: '/boardInfo',
+    name: 'boardInfo',
+    component: BoardInfo
+  },
+  {
+    path: '/boardView',
+    name: 'boardView',
+    component: BoardView
+  },
+  {
+    path: '/loginForm',
+    name: 'loginForm',
+    component: LoginForm
+  },
   {
     path: '/customerInsert',
     name: 'customerInsert',

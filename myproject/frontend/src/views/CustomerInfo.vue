@@ -9,7 +9,6 @@
         <button @click="modBtn">수정</button>
         <button @click="delBtn">삭제</button>
         <button @click="canBtn">초기화</button>
-
    </div>
 </template>
 <script>

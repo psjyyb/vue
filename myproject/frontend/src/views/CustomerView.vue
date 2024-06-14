@@ -2,7 +2,6 @@
     <div>고객관리</div>
     <div class="row">
         <div class="col-md 12 col-lg-7 border p-3">
-            
             <table class="table table-success table-striped table table-hover">
             <thead>
                 <tr>

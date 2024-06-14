@@ -1,23 +1,9 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
-const cors = require('cors');
+const express = require("express");
+const app = express();
+const port = 3000;
 
 const session = require('express-session'); 
 const fileStore = require('session-file-store')(session);
-
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-const customerRouter = require('./routes/customer.js')
-const boardRouter = require('./routes/board.js')
-
-var app = express();
-
-// view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'ejs');
 
 app.use(session({
   secret: 'secret key', //암호화하는 데 쓰일 키
@@ -32,18 +18,17 @@ app.use(session({
   }
 ));
 
-app.use(logger('dev'));
+
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+
+const cookieParser = require("cookie-parser");
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
-app.use(cors());
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
-app.use("/customer",customerRouter);
-app.use("/board",boardRouter);
-
+app.get("/", (req, res) => {
+  res.send("Hello World!~~");
+});
 
 const members = [
   { userId: "user01", userPw: "1111" },
@@ -51,7 +36,7 @@ const members = [
   { userId: "user03", userPw: "3333" },
 ];
 
-app.get("/account", (req, res) => {
+app.get("/api/account", (req, res) => {
   //if (req.cookies && req.cookies.account) {
   if (req.session.is_logined) {
     const member = JSON.parse({userid : req.session.userId});
@@ -60,13 +45,13 @@ app.get("/account", (req, res) => {
   res.send(401);
 });
 
-app.post('/logout', (req, res) => {
+app.post('/api/logout', (req, res) => {
   //res.clearCookie("account");
   req.session.destroy();
   res.send(200);
 });
 
-app.post("/login",(req, res) => {
+app.post("/api/login",(req, res) => {
   const userId = req.body.userId; 
   const userPw = req.body.userPw; 
   const member = members.find(m=>m.userId === userId && m.userPw === userPw)
@@ -90,23 +75,6 @@ app.post("/login",(req, res) => {
     res.send(401);
   }
 });
-
-
-// catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  next(createError(404));
+app.listen(port, () => {
+  console.log(`Example app listening on http://localhost:${port}`);
 });
-
-// error handler
-app.use(function(err, req, res, next) {
-  // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
-
-  // render the error page
-  res.status(err.status || 500);
-  res.render('error');
-});
-
-
-module.exports = app;
