@@ -28,7 +28,7 @@
         <PagingComponent v-bind="page" @go-page="goPage"></PagingComponent>
         </div>
         <div class="col-md 12 col-lg-5 border">
-            <BoardInsert :boarddata="board" @go-page="goPage"></BoardInsert>
+            <BoardInsert @go-page="goPage"></BoardInsert>
         </div>
         </div>
 </template>
@@ -42,23 +42,27 @@
     components:{PagingComponent,BoardInsert},
     data(){
      return {
-        boards:{},pageUnit:5,page:{}
+        boards:{},pageUnit:5,page:{}, form:{userId:'',userPw:''}
      }; 
     },
     created(){
         this.goPage(1);
+    }, computed:{
+        account(){
+            return this.$store.state.user.userId
+        }
     },
     methods:{
         async goPage(page){
         let pageUnit =this.pageUnit;
         let result = await axios.get(`/api/board?pageUnit=${pageUnit}&page=${page}`);
         this.boards = result.data.list;
+        console.log('board',result)
         this.page =this.pageCalc(page,result.data.count,5,pageUnit);
-        console.log('vuew',page,'vuew1',result.data.count,'vuew2',5,'vuew3',pageUnit);
     },
     infoForm(no){
         this.$router.push({
-                name: 'boardInfo' , query: {no: no}
+                name: 'boardInfo', query: {no: no}
             });
     }
     }

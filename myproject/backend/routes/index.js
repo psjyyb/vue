@@ -7,12 +7,13 @@ router.get('/', function(req, res, next) {
   //res.render('index', { title: 'Express',username:'kipodong' });
   //res.redirect("/prod")
   //res.send("hello");
-  //res.sendFile(path.join(__dirname, '../public', 'index.html'));
-  // const filename = 'img.jpg'
+ 
+  //  const filename = 'img.jpg'
 
   // 상세조회 이미지 추가
   // const filepath = 'D:/upload/0750864fcbca03d48ca9e3958c689330';  
-  //res.setHeader('Content-Disposition', `attachment; filename=${filename}`); // 이게 핵심 
+  // res.setHeader('Content-Disposition', `attachment; filename=${filename}`); // 이게 핵심 
+  //res.sendFile(path.join(__dirname, '../public', 'index.html'));
   //res.sendFile(filepath);
 
 });

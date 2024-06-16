@@ -39,6 +39,8 @@
     <!-- count:  {{ count }}
     <button type="button" @click="increment">store count 증가</button> -->
   </div>
+  <img src="">
+  <button>보튼</button>
 </template>
 
 <script>

@@ -5,7 +5,7 @@
         <div>작성자<input class="form-control form-control-sm" type="text" v-model="board.writer"></div>
         <div>내용<textarea class="form-control form-control-sm" type="text" v-model="board.content"></textarea></div>
         <div>사진<input class="form-control form-control-sm" v-on:change="handleFileChange"type="file" ref="file"></div>
-        <button @click="addBtn">등록</button>
+        <button v-if="account" @click="addBtn">등록</button>
   </div>
 </template>
 <script>
@@ -15,6 +15,11 @@
      return {
         board:{},file:''
      }; 
+    },
+    computed:{
+        account(){
+            return this.$store.state.user.userId
+        }
     },
     created(){
     },

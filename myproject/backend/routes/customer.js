@@ -13,6 +13,7 @@ router.get("/", async(req,res)=>{
    let list = await query("customerList",[offset,pageUnit]);
    let count = await query("customerCount");
    count = count[0].cnt;
+   console.log(list)
    res.send({list,count})
 })
 router.get("/:id",(req,res)=>{

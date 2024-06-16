@@ -5,8 +5,14 @@ import LoginForm from '@/views/LoginForm.vue';
 import BoardView from '../views/BoardView.vue'
 import BoardInfo from '../views/BoardInfo.vue'
 import BoardInsert from '../views/BoardInsert.vue'
+import ReplyView from '../views/ReplyView.vue'
 
 const routes = [
+  {
+    path: '/replyView',
+    name: 'replyView',
+    component: ReplyView
+  },
   {
     path: '/boardInsert',
     name: 'boardInsert',

@@ -64,8 +64,8 @@
         let pageUnit =this.pageUnit;
         let result = await axios.get(`/api/customer?pageUnit=${pageUnit}&page=${page}`);
         this.customers = result.data.list;
+        console.log('customers',result)
         this.page =this.pageCalc(page,result.data.count,5,pageUnit);
-        console.log('vuew',page,'vuew1',result.data.count,'vuew2',5,'vuew3',pageUnit);
     },
     //  goPage(page){
     //     let pageUnit =this.pageUnit;

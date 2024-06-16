@@ -6,15 +6,19 @@
         <div><input type="text" v-model="customer.email"></div>
         <div><input type="text" v-model="customer.phone"></div>
         <div><input type="text" v-model="customer.address"></div>
-        <button @click="modBtn">수정</button>
-        <button @click="delBtn">삭제</button>
-        <button @click="canBtn">초기화</button>
+        <button v-if="account" @click="modBtn">수정</button>
+        <button v-if="account" @click="delBtn">삭제</button>
+        <button v-if="account" @click="canBtn">초기화</button>
    </div>
 </template>
 <script>
     import axios from 'axios';
     export default{
-    
+        computed:{
+        account(){
+            return this.$store.state.user.userId
+        }
+    },
     data(){
      return {
         customer:{}

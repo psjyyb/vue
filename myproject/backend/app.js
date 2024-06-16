@@ -4,14 +4,16 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const cors = require('cors');
-
+const query = require('./mysql/index.js');
 const session = require('express-session'); 
 const fileStore = require('session-file-store')(session);
 
+var replyRouter = require('./routes/reply.js')
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 const customerRouter = require('./routes/customer.js')
 const boardRouter = require('./routes/board.js')
+
 
 var app = express();
 
@@ -43,12 +45,30 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use("/customer",customerRouter);
 app.use("/board",boardRouter);
+app.use("/reply",replyRouter);
 
+//app.get('/uploads', express.static('D:/upload'));
+
+// app.get("/img/:no",(req,res)=>{
+//   console.log('durlxka'),
+//   query("boardInfo",req.params.no)
+//   .then(result=>{let img = '';
+//     let filepath='';
+//     let filename ='';
+//       img= result[0].uploadfilename,
+//       filename= result[0].filename,
+//       filepath = path.join('D:/upload',img ),
+//       console.log('img:',img,'path',filepath,'anam',filename),
+//       res.setHeader('Content-Disposition', `attachment; filename*=UTF-8''` + encodeURIComponent(filename)),
+//       res.send(filepath)
+ 
+//     }).catch(err=>console.log(err))
+// })
 
 const members = [
   { userId: "user01", userPw: "1111" },
-  { userId: "user02", userPw: "2222" },
-  { userId: "user03", userPw: "3333" },
+  { userId: "user02", userPw: "1111" },
+  { userId: "user03", userPw: "1111" },
 ];
 
 app.get("/account", (req, res) => {

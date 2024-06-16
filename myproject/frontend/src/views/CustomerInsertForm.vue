@@ -10,9 +10,9 @@
             <p v-show="valid.phone">전화번호를 정확히 입력해주세요. </p>
         </div>
         <div>주소<input class="form-control form-control-sm" type="text" v-model="customer.address"></div>
-        <button v-if="customer.id==null" @click="addBtn" >등록</button>
-        <button v-if="customer.id!=null"  @click="modBtn" >수정</button>
-        <button v-if="customer.id!=null"  @click="delBtn" >삭제</button>
+        <button v-if="customer.id==null&&account" @click="addBtn" >등록</button>
+        <button v-if="customer.id!=null&&account"  @click="modBtn" >수정</button>
+        <button v-if="customer.id!=null&&account"  @click="delBtn" >삭제</button>
         <button @click="canBtn" >초기화</button>
     </div>
 </template>
@@ -22,6 +22,11 @@
         props : {
         customerdata : {
             type : Object
+        }
+    },
+    computed:{
+        account(){
+            return this.$store.state.user.userId
         }
     },
     data(){
