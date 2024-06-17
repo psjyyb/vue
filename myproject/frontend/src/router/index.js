@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
+
 import HomeView from '../views/HomeView.vue';
 import CustomerInsert from '../views/CustomerInsertForm.vue';
 import LoginForm from '@/views/LoginForm.vue';
@@ -6,8 +7,26 @@ import BoardView from '../views/BoardView.vue'
 import BoardInfo from '../views/BoardInfo.vue'
 import BoardInsert from '../views/BoardInsert.vue'
 import ReplyView from '../views/ReplyView.vue'
+import VuetifyView from '../views/VuetifyView.vue'
+import DataBInding from '../components/CompositonDataBInding.vue'
+import CompositionMouse from '../views/CompositionMouse.vue'
 
 const routes = [
+  {
+    path: '/compositionMouse',
+    name: 'compositionMouse',
+    component: CompositionMouse
+  },
+  {
+    path: '/composition',
+    name: 'composition',
+    component: DataBInding
+  },
+  {
+    path: '/vuetifyView',
+    name: 'vuetifyView',
+    component: VuetifyView
+  },
   {
     path: '/replyView',
     name: 'replyView',

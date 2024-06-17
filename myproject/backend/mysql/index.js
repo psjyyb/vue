@@ -1,7 +1,7 @@
 // DB 와 연결해준다.
 const mysql = require('mysql2'); // npm i mysql2 해서 다운받고 import
 const sql = require('./sql.js');// sql.js 파일 import
-require('dotenv').config({path:'mysql/.env'});//npm i dotenv 다운 path설정
+require('dotenv').config({path:'mysql/.env'});//npm i dotenv 다운 path설정 . env 파일참고
 const conn = { // mysql 접속 설정
     connectionLimit:process.env.MYSQL_LIMIT,
     host:process.env.MYSQL_HOST,
