@@ -28,6 +28,6 @@
             .catch(err=>console.log(err))
         }
     }
-    }
+    }  
 </script>
 <style></style>
