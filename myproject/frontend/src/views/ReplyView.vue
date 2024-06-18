@@ -13,16 +13,12 @@
                 <tr v-for=" reply in replys">
                     <td>{{reply.replyer}}</td>
                     <td>{{reply.content}}</td>
-                    <td><button v-if="reply.replyer==$store.state.user.userId" @click="delBtn(reply.no)">삭제</button></td>
+                   
                 </tr>
             </tbody>
             <PagingComponent v-bind="page" @go-page="goPage"></PagingComponent>
         </table>
-        <div>
-            <input class="form-control form-control-sm" type="text" v-model="reply.content">
-            <input  type="text" v-model="reply.replyer" readonly >
-            <button @click="addBtn">등록</button>
-        </div>
+        
     </div>
 </template>
 <script>

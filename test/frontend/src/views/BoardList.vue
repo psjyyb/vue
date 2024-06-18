@@ -1,15 +1,15 @@
 <template>
     <div class="row">
-        <router-link to="/boardInsert">등록</router-link>
-        <div class="col-md 12 col-lg-7 border p-3">
+        <div class="col-md 12 col-lg-7 border p-10">
             <h1>게시판</h1>
             <table class="table table-success table-striped table table-hover">
             <thead>
                 <tr>
-                    <th>no</th>
-                    <th>title</th>
-                    <th>writer</th>
-                    <th>content</th>
+                    <th>No.</th>
+                    <th>제목</th>
+                    <th>작성자</th>
+                    <th>작성일자</th>
+                    <th>댓글 수</th>
                 </tr>
             </thead>
             <tbody>
@@ -17,24 +17,31 @@
                     <td>{{board.no }}</td>
                     <td>{{board.title}}</td>
                     <td>{{board.writer}}</td>
-                    <td>{{board.content}}</td>
+                    <td>{{board.created_date}}</td>
+                    <td>{{board.cnt}}</td>
                 </tr>
             </tbody>
         </table>
+       
         </div>
         </div>
+        <Footer></Footer>
 </template>
 <script>
   import axios from 'axios';
+  import Footer from '../components/Footer.vue'
     export default{
+        components: {
+    Footer
+    },
     data(){
      return {
-        boards:{}
+        boards:{},replys:{}
     }
     },
     created(){
         axios.get('/api/board')
-        .then(result=> this.boards=result.data)
+        .then(result=>this.boards = result.data)
         .catch(err=>console.log(err))
     },
     methods:{

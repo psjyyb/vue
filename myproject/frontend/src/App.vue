@@ -8,7 +8,7 @@
     <router-link to="/about">About</router-link> |
     <router-link to="/customer">고객관리</router-link> |
     <router-link to="/loginForm">로그인</router-link> |
-    <router-link to="/boardView">게시판</router-link>
+    <router-link to="/boardView">게시판</router-link> 
   </nav>
   <router-view/>
 </div>

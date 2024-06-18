@@ -1,6 +1,7 @@
 const express = require("express");
 const port = 3000;
 const boardRouter = require('./routes/board.js');
+const replyRouter = require('./routes/reply.js');
 var path = require('path');
 
 const app = express();
@@ -16,6 +17,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/board",boardRouter)
+app.use("/reply",replyRouter)
 
 app.listen(port, () => {
     console.log(`Example app listening on http://localhost:${port}`);
