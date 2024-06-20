@@ -9,7 +9,8 @@
         <div class="navbar-nav">
             <router-link to="/">Home</router-link> |
             <router-link to="/board">전체조회</router-link> |
-            <router-link to="/boardInsert">글 등록</router-link>
+            <router-link to="/boardInsert">글 등록</router-link> |
+            <router-link to="/testView">test</router-link>
         </div>
       </div>
     </div>
