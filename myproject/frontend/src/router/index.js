@@ -10,8 +10,14 @@ import ReplyView from '../views/ReplyView.vue'
 import VuetifyView from '../views/VuetifyView.vue'
 import DataBInding from '../components/CompositonDataBInding.vue'
 import CompositionMouse from '../views/CompositionMouse.vue'
+import TestView from '../views/TestView.vue'
 
 const routes = [
+  {
+    path: '/testView',
+    name: 'testView',
+    component: TestView
+  },
   {
     path: '/compositionMouse',
     name: 'compositionMouse',
