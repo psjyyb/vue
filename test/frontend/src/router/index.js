@@ -2,8 +2,20 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import Header from '../components/Header.vue'
 import Footer from '../components/Footer.vue'
+import SideVar from '../components/SideVar.vue'
 import TestView from '../views/TestView.vue'
+import StrapView from '../views/StrapView.vue'
 const routes = [
+  {
+    path: '/sideVar',
+    name: 'sideVar',
+    component: SideVar
+  },
+  {
+    path: '/strapView',
+    name: 'strapView',
+    component: StrapView
+  },
   {
     path: '/testView',
     name: 'testView',

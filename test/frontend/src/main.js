@@ -5,5 +5,6 @@ import store from './store'
 import "bootstrap/dist/css/bootstrap.min.css"
 import "bootstrap"
 import "startbootstrap-sb-admin/dist/css/styles.css"
+import "startbootstrap-resume/dist/css/styles.css"
 import "simple-datatables/dist/style.css"
 createApp(App).use(store).use(router).mount('#app')
