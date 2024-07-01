@@ -1,5 +1,5 @@
 <template>
-  <!-- <div class="container">
+  <div class="container">
   <nav>
     <router-link to="/compositionMouse">compositionMouse</router-link> |
     <router-link to="/composition">composition</router-link> |
@@ -10,9 +10,9 @@
     <router-link to="/loginForm">로그인</router-link> |
     <router-link to="/boardView">게시판</router-link> |
     <router-link to="/testView">테스트</router-link> 
-  </nav> -->
+  </nav>
   <router-view/>
-<!-- </div> -->
+</div>
 </template>
 
 <style>

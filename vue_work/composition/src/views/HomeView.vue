@@ -5,7 +5,7 @@
     <Computed></Computed>
     <Watch></Watch>
     <Watch2></Watch2> -->
-    <!-- <Props title="porps전달" subject="subject전달"></Props>
+    <Props title="porps전달" subject="subject전달"></Props>
     <Props></Props> -->
     <Provide></Provide>
   </div>
