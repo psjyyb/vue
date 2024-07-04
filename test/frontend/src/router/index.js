@@ -5,7 +5,13 @@ import Footer from '../components/Footer.vue'
 import SideVar from '../components/SideVar.vue'
 import TestView from '../views/TestView.vue'
 import StrapView from '../views/StrapView.vue'
+import Kakaopay from '@/views/Kakaopay.vue'
 const routes = [
+  {
+    path: '/kakaopay',
+    name: 'kakaopay',
+    component: Kakaopay
+  },
   {
     path: '/sideVar',
     name: 'sideVar',

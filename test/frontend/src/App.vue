@@ -11,7 +11,8 @@
             <router-link to="/board">전체조회</router-link> |
             <router-link to="/boardInsert">글 등록</router-link> |
             <router-link to="/testView">test</router-link> |
-            <router-link to="/strapView">strap</router-link>
+            <router-link to="/strapView">strap</router-link> |
+            <router-link to="/kakaopay">api 연습</router-link>
         </div>
       </div>
     </div>
